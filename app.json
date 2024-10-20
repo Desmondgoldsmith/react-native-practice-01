@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "react-native-practice-01",
+    "scheme": "react-native-practice-01", 
     "slug": "react-native-practice-01",
     "version": "1.0.0",
     "orientation": "portrait",
