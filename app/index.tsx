@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "expo-router";
 import { Image } from "react-native";
 import { images } from "../constants";
+import Button from "../components/button";
 
 const Index = () => {
   return (
@@ -36,6 +37,12 @@ const Index = () => {
             Where cretivity meets exploration: Embark on a journey of timeless
             exploration with Aora.{" "}
           </Text>
+
+          <Button
+            text="continue with email"
+            handelPress={() => {}}
+            containerStyles={"w-full mt-7"}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
