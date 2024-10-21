@@ -1,9 +1,9 @@
-import profile from "../assets/images/profile.png";
-import thumbnail from "../assets/images/thumbnail.png";
-import cards from "../assets/images/cards.png";
-import path from "../assets/images/path.png";
-import logo from "../assets/images/logo.png";
-import logoSmall from "../assets/images/logo-small.png";
-import empty from "../assets/images/empty.png";
-
-export default { profile, thumbnail, cards, path, logo, logoSmall, empty };
+export default {
+  profile: require("../assets/Images/profile.png"),
+  thumbnail: require("../assets/Images/thumbnail.png"),
+  cards: require("../assets/Images/cards.png"),
+  path: require("../assets/Images/path.png"),
+  logo: require("../assets/Images/logo.png"),
+  logoSmall: require("../assets/Images/logo-small.png"),
+  empty: require("../assets/Images/empty.png"),
+};
