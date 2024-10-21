@@ -1,17 +1,42 @@
-import { View, Text, Image } from "react-native";
 import React from "react";
-import { Tabs, Redirect } from "expo-router";
+import { View, Text, Image, ImageSourcePropType } from "react-native";
+import { Tabs } from "expo-router";
 import { icons } from "../../constants";
 
-const TabIcon = ({ name, icon, color, focused }) => {
-  <View>
-    <Image source={icon} resizeMode="contain" />
-  </View>;
-};
+// TypeScript interface for TabIcon props
+interface TabIconProps {
+  name: string;
+  icon: ImageSourcePropType;
+  color: string;
+  focused: boolean;
+}
 
-const TabLayout = () => {
+const TabIcon: React.FC<TabIconProps> = ({ name, icon, color, focused }) => (
+  <View className="items-center justify-center gap-2">
+    <Image
+      source={icon}
+      className="w-6 h-6"
+      style={{ tintColor: color }}
+      resizeMode="contain"
+    />
+    <Text
+      className={`text-xs ${
+        focused ? "font-psemibold" : "font-pregular"
+      } text-xs`}
+      style={{ color }}
+    >
+      {name}
+    </Text>
+  </View>
+);
+
+const TabLayout: React.FC = () => {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarShowLabel: false,
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
@@ -21,12 +46,13 @@ const TabLayout = () => {
             <TabIcon
               icon={icons.home}
               color={color}
-              name={"Home"}
+              name="Home"
               focused={focused}
             />
           ),
         }}
       />
+      {/* Add other tab screens here */}
     </Tabs>
   );
 };
