@@ -20,9 +20,12 @@ const Button: React.FC<ButtonProps> = ({
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.7}
-      className={`bg-secondary max-h-[62px] justify-center items-center rounded-md ${containerStyles}`}
+      className={`bg-secondary max-h-[62px] justify-center items-center rounded-md ${containerStyles}
+      ${isLoading ? "opacity-50" : ""}    
+      disabled = {isLoading}
+    `}
     >
-      <Text className="text-lg font-psemibold">{title}</Text>
+      <Text className={`text-lg font-psemibold ${textStyles}`}>{title}</Text>
     </TouchableOpacity>
   );
 };

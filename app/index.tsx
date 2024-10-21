@@ -1,15 +1,16 @@
 import { SafeAreaView, ScrollView, Text, View } from "react-native";
 import React from "react";
-import { Link } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { Image } from "react-native";
 import { images } from "../constants";
 import Button from "../components/button";
+import { router, Redirect } from "expo-router";
 
 const Index = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
-        <View className="w-full justify-center items-center  h-full px-4">
+        <View className="w-full justify-center items-center  min-h-[85vh] px-4">
           <Image
             source={images.logo}
             className="w-[130px] h-[84px]"
@@ -37,14 +38,16 @@ const Index = () => {
             Where cretivity meets exploration: Embark on a journey of timeless
             exploration with Aora.{" "}
           </Text>
-
+          {/* ts-ignore */}
           <Button
             title="continue with email"
-            handlePress={() => {}}
-            containerStyles={"w-full mt-7"}
+            handlePress={() => router.push("/sign-in")}
+            containerStyles={"w-full p-2 mt-7"}
           />
         </View>
       </ScrollView>
+
+      <StatusBar backgroundColor="#161622" style="light" />
     </SafeAreaView>
   );
 };
