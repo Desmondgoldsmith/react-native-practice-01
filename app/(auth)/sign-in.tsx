@@ -1,44 +1,46 @@
-import { View, Text, ScrollView, Image } from "react-native";
 import React, { useState } from "react";
+import { View, Text, ScrollView, Image } from "react-native";
 import { SafeAreaView } from "react-native";
 import { images } from "../../constants";
 import Form from "../../components/formField";
 
-const SignIn = () => {
+const SignIn: React.FC = () => {
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
+    password: "",
   });
+
   return (
-    <SafeAreaView className="bg-primary h-full">
-      <ScrollView>
-        <View className="px-4 py-6 w-full justify-center h-full">
+    <SafeAreaView className="bg-primary flex-1">
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View className="px-4 py-6 justify-center flex-1">
           <Image
             source={images.logo}
             className="w-[115px] h-[35px]"
             resizeMode="contain"
           />
 
-          <Text className="font-psemibold text-white mt-10 text-2xl text-semibold">
+          <Text className="font-psemibold text-white mt-10 text-2xl">
             Log in to Aora
           </Text>
-          {/* email */}
+
           <Form
             title="Email"
+            placeholder="Enter your email"
             value={formData.email}
-            handleChangeText={(event) =>
-              setFormData({ ...formData, email: event })
+            handleChangeText={(text: string) =>
+              setFormData({ ...formData, email: text })
             }
             otherStyles="mt-7"
             keyboardType="email-address"
           />
 
-          {/* password */}
           <Form
             title="Password"
-            value={formData.passwword}
-            handleChangeText={(event) =>
-              setFormData({ ...formData, password: event })
+            placeholder="Enter your password"
+            value={formData.password}
+            handleChangeText={(text: string) =>
+              setFormData({ ...formData, password: text })
             }
             otherStyles="mt-7"
           />
