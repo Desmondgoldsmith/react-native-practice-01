@@ -3,7 +3,6 @@ import { View, Text, Image, ImageSourcePropType } from "react-native";
 import { Tabs } from "expo-router";
 import { icons } from "../../constants";
 
-// TypeScript interface for TabIcon props
 interface TabIconProps {
   name: string;
   icon: ImageSourcePropType;
@@ -35,6 +34,14 @@ const TabLayout: React.FC = () => {
     <Tabs
       screenOptions={{
         tabBarShowLabel: false,
+        tabBarActiveTintColor: "#FFA001",
+        tabBarInactiveTintColor: "#CDCDE0",
+        tabBarStyle: {
+          backgroundColor: "#161622",
+          borderTopWidth: 1,
+          borderTopColor: "#232533",
+          height: 84,
+        },
       }}
     >
       <Tabs.Screen
