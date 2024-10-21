@@ -39,8 +39,8 @@ const Index = () => {
           </Text>
 
           <Button
-            text="continue with email"
-            handelPress={() => {}}
+            title="continue with email"
+            handlePress={() => {}}
             containerStyles={"w-full mt-7"}
           />
         </View>
