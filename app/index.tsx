@@ -29,8 +29,13 @@ const Index = () => {
             <Image
               source={images.path}
               className="w-[130px] absolute h-[15px] -bottom-2 -right-8"
+              resizeMode="contain"
             />
           </View>
+          <Text className="text-center font-pregular text-sm text-gray-200 mt-7">
+            Where cretivity meets exploration: Embark on a journey of timeless
+            exploration with Aora.{" "}
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
