@@ -1,5 +1,5 @@
 import { SafeAreaView, ScrollView, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Image } from "react-native";
 import { images } from "../constants";
@@ -7,6 +7,7 @@ import Button from "../components/button";
 import { router, Redirect } from "expo-router";
 
 const Index = () => {
+  const [isSubmitting, setSubmitting] = useState(false);
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
@@ -43,6 +44,8 @@ const Index = () => {
             title="continue with email"
             handlePress={() => router.push("/sign-in")}
             containerStyles={"w-full p-2 mt-7"}
+            textStyles=""
+            isLoading={isSubmitting}
           />
         </View>
       </ScrollView>

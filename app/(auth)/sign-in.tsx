@@ -39,7 +39,7 @@ const SignIn: React.FC = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
-        <View className="px-4 py-6 h-full justify-center flex-1">
+        <View className="px-4 py-6 min-h-[85vh] justify-center ">
           <Image
             source={images.logo}
             className="w-[115px] h-[35px]"
