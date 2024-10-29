@@ -7,6 +7,7 @@ import Button from "../../components/button";
 import { Alert } from "react-native";
 import { Link } from "expo-router";
 import { createUser } from "../../lib/appwrite";
+import { router } from "expo-router";
 
 const SignUp: React.FC = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -32,6 +33,10 @@ const SignUp: React.FC = () => {
         formData.email,
         formData.password
       );
+
+      // set the data to state.
+
+      router.replace("/home");
     } catch (error: any) {
       Alert.alert("Error", error.message);
     } finally {
