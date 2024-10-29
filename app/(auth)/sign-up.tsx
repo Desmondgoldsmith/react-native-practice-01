@@ -54,13 +54,13 @@ const SignUp: React.FC = () => {
           <Form
             title="Username"
             placeholder="Enter your Username"
-            value={formData.email}
+            value={formData.username}
             handleChangeText={(text: string) =>
-              setFormData({ ...formData, email: text })
+              setFormData({ ...formData, username: text })
             }
             otherStyles="mt-7"
-            keyboardType="email-address"
           />
+
           <Form
             title="Email"
             placeholder="Enter your email"
@@ -83,7 +83,7 @@ const SignUp: React.FC = () => {
           />
 
           <Button
-            title="Sign-in"
+            title="Sign Up"
             handlePress={submit}
             containerStyles="mt-7 p-2"
             textStyles=""
@@ -92,13 +92,13 @@ const SignUp: React.FC = () => {
 
           <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-base text-gray-100 font-pregular">
-              Don't have an account?
+              Have an account?
             </Text>
             <Link
-              href="/sign-up"
+              href="/sign-in"
               className="text-base font-psemibold text-secondary"
             >
-              Signup
+              Sign-in
             </Link>
           </View>
         </View>
