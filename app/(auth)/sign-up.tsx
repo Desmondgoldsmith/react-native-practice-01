@@ -8,9 +8,11 @@ import { Alert } from "react-native";
 import { Link } from "expo-router";
 import { createUser } from "../../lib/appwrite";
 import { router } from "expo-router";
+import { useGlobalContext } from "../../context/Provider";
 
 const SignUp: React.FC = () => {
   const [isSubmitting, setSubmitting] = useState(false);
+  const { setUser, setIsLogged } = useGlobalContext();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -35,6 +37,8 @@ const SignUp: React.FC = () => {
       );
 
       // set the data to state.
+      setUser(results);
+      setIsLogged(true);
 
       router.replace("/home");
     } catch (error: any) {

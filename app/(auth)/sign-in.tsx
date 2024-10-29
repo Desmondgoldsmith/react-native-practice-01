@@ -6,10 +6,12 @@ import Form from "../../components/formField";
 import Button from "../../components/button";
 import { Alert } from "react-native";
 import { Link, router } from "expo-router";
-import { signIn } from "../../lib/appwrite";
+import { getCurrentUser, signIn } from "../../lib/appwrite";
+import { useGlobalContext } from "../../context/Provider";
 
 const SignIn: React.FC = () => {
   const [isSubmitting, setSubmitting] = useState(false);
+  const { setUser, setIsLogged } = useGlobalContext();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,7 +27,11 @@ const SignIn: React.FC = () => {
       await signIn(formData.email, formData.password);
 
       // set the data to state.
+      const results = await getCurrentUser();
+      setUser(results);
+      setIsLogged(true);
 
+      Alert.alert("Success", "Logged in successfully!");
       router.replace("/home");
     } catch (error: any) {
       Alert.alert("Error", error.message);
