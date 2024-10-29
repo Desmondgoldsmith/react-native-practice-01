@@ -17,12 +17,26 @@ const SignUp: React.FC = () => {
   });
 
   const submit = async () => {
-    if (formData.email === "" || formData.password === "") {
+    if (
+      formData.email === "" ||
+      formData.password === "" ||
+      formData.username === ""
+    ) {
       Alert.alert("Error", "Please fill in all fields");
     }
-
-    createUser(formData.username, formData.email, formData.password);
     setSubmitting(true);
+
+    try {
+      const results = await createUser(
+        formData.username,
+        formData.email,
+        formData.password
+      );
+    } catch (error: any) {
+      Alert.alert("Error", error.message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
