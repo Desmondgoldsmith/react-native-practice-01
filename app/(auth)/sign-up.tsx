@@ -6,6 +6,7 @@ import Form from "../../components/formField";
 import Button from "../../components/button";
 import { Alert } from "react-native";
 import { Link } from "expo-router";
+import { createUser } from "../../lib/appwrite";
 
 const SignUp: React.FC = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -20,21 +21,8 @@ const SignUp: React.FC = () => {
       Alert.alert("Error", "Please fill in all fields");
     }
 
+    createUser(formData.username, formData.email, formData.password);
     setSubmitting(true);
-
-    // try {
-    //   await signIn(form.email, form.password);
-    //   const result = await getCurrentUser();
-    //   setUser(result);
-    //   setIsLogged(true);
-
-    //   Alert.alert("Success", "User signed in successfully");
-    //   router.replace("/home");
-    // } catch (error) {
-    //   Alert.alert("Error", error.message);
-    // } finally {
-    //   setSubmitting(false);
-    // }
   };
 
   return (
